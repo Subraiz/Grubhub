@@ -5,46 +5,47 @@ const parsePhoneNumber = require("libphonenumber-js");
 
 const AccountRouter = require("express").Router();
 
-async function getMultipleCodes() {
-  let startTimer = performance.now();
-  const browser = await puppeteer.launch({
-    headless: true
-  });
-
-  for (var i = 0; i < 10; i++) {
-    const page = await browser.newPage();
-
-    await page.goto(
-      "https://www.grubhub.com/referral/c930ff85-0fde-11eb-9173-0f21de63aff6?utm_source=grubhub.com&utm_medium=content_owned&utm_campaign=growth_refer-a-friend_share-link&utm_content=promo_"
-    );
-
-    await page.on("response", async response => {
-      const url = response.url();
-      if (url.includes("code") && response.status() === 201) {
-        let rawData = await response.json();
-        const code = rawData.code_text;
-        if (code) {
-          console.log(code);
-          page.close();
-        }
-      }
-    });
-  }
-
-  if (cluster.worker.id === 4) {
-    let endTimer = performance.now();
-    setTimeout(() => {
-      console.log(
-        `\nTotal Time: ${Math.round(((endTimer - startTimer) / 1000) * 100) /
-          100} seconds`
-      );
-    }, 2000);
-  }
-}
+// async function getMultipleCodes() {
+//   let startTimer = performance.now();
+//   const browser = await puppeteer.launch({
+//     headless: true
+//   });
+//
+//   for (var i = 0; i < 10; i++) {
+//     const page = await browser.newPage();
+//
+//     await page.goto(
+//       "https://www.grubhub.com/referral/c930ff85-0fde-11eb-9173-0f21de63aff6?utm_source=grubhub.com&utm_medium=content_owned&utm_campaign=growth_refer-a-friend_share-link&utm_content=promo_"
+//     );
+//
+//     await page.on("response", async response => {
+//       const url = response.url();
+//       if (url.includes("code") && response.status() === 201) {
+//         let rawData = await response.json();
+//         const code = rawData.code_text;
+//         if (code) {
+//           console.log(code);
+//           page.close();
+//         }
+//       }
+//     });
+//   }
+//
+//   if (cluster.worker.id === 4) {
+//     let endTimer = performance.now();
+//     setTimeout(() => {
+//       console.log(
+//         `\nTotal Time: ${Math.round(((endTimer - startTimer) / 1000) * 100) /
+//           100} seconds`
+//       );
+//     }, 2000);
+//   }
+// }
 
 async function getCode(profile, res) {
   const browser = await puppeteer.launch({
-    headless: true
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
 
   const page = await browser.newPage();

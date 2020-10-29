@@ -44,7 +44,8 @@ const AccountRouter = require("express").Router();
 
 async function getCode(profile, res) {
   const browser = await puppeteer.launch({
-    headless: true
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
 
   const page = await browser.newPage();
@@ -77,82 +78,74 @@ async function createAccount(page, profile) {
   const email = generateEmail(firstName, lastName);
   const password = generatePassword();
 
-  await page.waitFor(2500);
+  await page.waitFor(1000);
 
   await page.click("#firstName");
   await keyboard.type(firstName);
 
-  await page.waitFor(250);
-
   await page.click("#lastName");
   await keyboard.type(lastName);
-
-  await page.waitFor(250);
 
   await page.click("#email");
   await keyboard.type(email);
 
-  await page.waitFor(250);
-
   await page.click("#password");
   await keyboard.type(password);
-
-  await page.waitFor(250);
 
   await page.evaluate(() => {
     const button = document.querySelectorAll(".s-btn-primary")[0];
     button.click();
   });
 
-  await page.waitFor(2500);
+  await page.waitFor(1500);
 
-  const { street, state, city, zipcode } = profile;
-
-  const phoneNumber = generatePhoneNumber();
-
-  await page.goto("https://www.grubhub.com/account/address");
-
-  await page.waitFor(2500);
-
+  // const { street, state, city, zipcode } = profile;
+  //
+  // const phoneNumber = generatePhoneNumber();
+  //
+  // await page.goto("https://www.grubhub.com/account/address");
+  //
+  // await page.waitFor(1500);
+  //
   // await page.waitForSelector(".s-btn-tertiary");
-
-  await page.evaluate(() => {
-    const button = document.querySelector(".s-btn-tertiary");
-    button.click();
-  });
-
-  await page.waitForSelector("#streetAddress");
-
-  await page.click("#streetAddress");
-  await keyboard.type(street);
-
-  await page.click("#city");
-  await keyboard.type(city);
-
-  await page.click("#zipCode");
-  await keyboard.type(zipcode);
-
-  await keyboard.press("Tab");
-  await keyboard.type(phoneNumber);
-
-  await page.select("#address-state", state);
-
-  await page.click("#addressName");
-  await keyboard.type("Default");
-
-  await keyboard.press("Tab");
-  await keyboard.press("Enter");
+  //
+  // await page.evaluate(() => {
+  //   const button = document.querySelector(".s-btn-tertiary");
+  //   button.click();
+  // });
+  //
+  // await page.waitForSelector("#streetAddress");
+  //
+  // await page.click("#streetAddress");
+  // await keyboard.type(street);
+  //
+  // await page.click("#city");
+  // await keyboard.type(city);
+  //
+  // await page.click("#zipCode");
+  // await keyboard.type(zipcode);
+  //
+  // await keyboard.press("Tab");
+  // await keyboard.type(phoneNumber);
+  //
+  // await page.select("#address-state", state);
+  //
+  // await page.click("#addressName");
+  // await keyboard.type("Default");
+  //
+  // await keyboard.press("Tab");
+  // await keyboard.press("Enter");
 
   const user = {
     firstName,
     lastName,
     email,
-    password,
-    street,
-    city,
-    state,
-    zipcode,
-    phoneNumber
+    password
+    // street,
+    // city,
+    // state,
+    // zipcode,
+    // phoneNumber
   };
 
   return user;

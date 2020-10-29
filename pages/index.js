@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Router from "next/router";
-import Link from "next/Link";
+import Link from "next/link";
 import { TweenMax, TimelineLite } from "gsap";
 import axios from "axios";
 import config from "../config.json";

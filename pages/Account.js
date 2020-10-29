@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { TweenMax, TimelineLite } from "gsap";
 import { BiCopyAlt } from "react-icons/bi";

@@ -233,22 +233,8 @@ function generatePassword() {
     .slice(-8);
 }
 
-async function main() {
-  const profile = {
-    firstName: "Subraiz",
-    lastName: "Ahmed",
-    street: "Voute Hall",
-    city: "Newton",
-    zipcode: "02134",
-    state: "MA"
-  };
-
-  await getCode(profile);
-}
-
-// main();
-
 AccountRouter.get("", async (req, res) => {
+  console.log("Fetching Account");
   const profile = {
     firstName: req.query.firstName,
     lastName: req.query.lastName,

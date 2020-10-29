@@ -114,7 +114,7 @@ async function createAccount(page, profile) {
 
   await page.waitFor(2500);
 
-  await page.waitForSelector(".s-btn-tertiary");
+  // await page.waitForSelector(".s-btn-tertiary");
 
   await page.evaluate(() => {
     const button = document.querySelector(".s-btn-tertiary");

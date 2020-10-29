@@ -64,6 +64,8 @@ async function getCode(profile, res) {
       if (code) {
         let account = await createAccount(page, profile);
         account["promoCode"] = code;
+        await page.close();
+        await browser.close();
         res.status(200).send(account);
       }
     }

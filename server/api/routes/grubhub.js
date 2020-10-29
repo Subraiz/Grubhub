@@ -99,9 +99,7 @@ async function createAccount(page, profile) {
     button.click();
   });
 
-  await page.waitForNavigation();
-
-  await page.waitFor(1500);
+  await page.waitFor(1750);
 
   await page.evaluate(() => {
     const button = document.querySelector(".mainNavProfile-text-container");
@@ -115,9 +113,7 @@ async function createAccount(page, profile) {
     settings.click();
   });
 
-  await page.waitForNavigation();
-
-  await page.waitFor(1500);
+  await page.waitFor(1750);
 
   await page.evaluate(() => {
     const addressButton = document.querySelectorAll(
@@ -126,8 +122,7 @@ async function createAccount(page, profile) {
     addressButton.click();
   });
 
-  await page.waitForNavigation();
-  await page.waitFor(1000);
+  await page.waitFor(1750);
 
   const { street, state, city, zipcode } = profile;
 

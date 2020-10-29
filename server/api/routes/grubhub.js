@@ -77,26 +77,34 @@ async function createAccount(page, profile) {
   const email = generateEmail(firstName, lastName);
   const password = generatePassword();
 
-  await page.waitFor(1000);
+  await page.waitFor(2500);
 
   await page.click("#firstName");
   await keyboard.type(firstName);
 
+  await page.waitFor(250);
+
   await page.click("#lastName");
   await keyboard.type(lastName);
+
+  await page.waitFor(250);
 
   await page.click("#email");
   await keyboard.type(email);
 
+  await page.waitFor(250);
+
   await page.click("#password");
   await keyboard.type(password);
+
+  await page.waitFor(250);
 
   await page.evaluate(() => {
     const button = document.querySelectorAll(".s-btn-primary")[0];
     button.click();
   });
 
-  await page.waitFor(1500);
+  await page.waitFor(2500);
 
   const { street, state, city, zipcode } = profile;
 
@@ -104,7 +112,7 @@ async function createAccount(page, profile) {
 
   await page.goto("https://www.grubhub.com/account/address");
 
-  await page.waitFor(1500);
+  await page.waitFor(2500);
 
   await page.waitForSelector(".s-btn-tertiary");
 

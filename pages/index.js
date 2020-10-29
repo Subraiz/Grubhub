@@ -87,7 +87,7 @@ export default function Index() {
           } else {
             updateProgress((progress += 1));
           }
-        }, 50);
+        }, 25);
 
         setTimeout(() => {
           Router.push(`/Account?${queryString}`);

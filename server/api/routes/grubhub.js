@@ -64,8 +64,6 @@ async function getCode(profile, res) {
       if (code) {
         let account = await createAccount(page, profile);
         account["promoCode"] = code;
-        await page.close();
-        await browser.close();
         res.status(200).send(account);
       }
     }
@@ -80,7 +78,7 @@ async function createAccount(page, profile) {
   const email = generateEmail(firstName, lastName);
   const password = generatePassword();
 
-  await page.waitFor(600);
+  await page.waitFor(1000);
 
   await page.click("#firstName");
   await keyboard.type(firstName);
@@ -99,34 +97,15 @@ async function createAccount(page, profile) {
     button.click();
   });
 
-  await page.waitFor(1750);
-
-  await page.evaluate(() => {
-    const button = document.querySelector(".mainNavProfile-text-container");
-    button.click();
-  });
-
-  await page.waitFor(1000);
-
-  await page.evaluate(() => {
-    const settings = document.querySelectorAll("a")[13];
-    settings.click();
-  });
-
-  await page.waitFor(1750);
-
-  await page.evaluate(() => {
-    const addressButton = document.querySelectorAll(
-      ".account-nav-items-item a"
-    )[1];
-    addressButton.click();
-  });
-
-  await page.waitFor(1750);
+  await page.waitFor(1500);
 
   const { street, state, city, zipcode } = profile;
 
   const phoneNumber = generatePhoneNumber();
+
+  await page.goto("https://www.grubhub.com/account/address");
+
+  await page.waitFor(1500);
 
   await page.waitForSelector(".s-btn-tertiary");
 
@@ -231,7 +210,6 @@ function generatePassword() {
 }
 
 AccountRouter.get("", async (req, res) => {
-  console.log("Fetching Account");
   const profile = {
     firstName: req.query.firstName,
     lastName: req.query.lastName,

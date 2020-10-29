@@ -1,0 +1,208 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+}
+
+.inner-container {
+  width: 95%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.account,
+.code {
+  width: 100%;
+  background-color: #1d1d1d;
+  border-radius: 8px;
+  margin: 15px 0;
+  padding: 25px;
+  position: relative;
+  transition: all 0.25s linear;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  background-color: #141414;
+  z-index: 0;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  top: -90px;
+  right: -90px;
+}
+
+.account div {
+  margin: 20px 0;
+  z-index: 1;
+}
+
+.account-header {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.account-hint {
+  font-weight: 100;
+  z-index: 1;
+  position: relative;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.account div p:first-child,
+.code div p:first-child {
+  font-weight: 500;
+  z-index: 1;
+  position: relative;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.account div p:nth-child(2),
+.code div p:nth-child(2) {
+  font-weight: 100;
+  margin: 5px 0;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+.account div p:nth-child(2):hover,
+.code div p:nth-child(2):hover {
+  color: #e94560;
+}
+
+.instructions {
+  width: 65%;
+  margin: 15px 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.instructions-header {
+  text-align: right;
+}
+
+.instructions div:not(:first-child) {
+  background-color: #1d1d1d;
+  border-radius: 12px;
+  width: 100%;
+  display: inline;
+  margin: 15px 0;
+  padding: 25px 0;
+}
+
+.instructions div:not(:first-child) p,
+.instructions div:not(:first-child) h2 {
+  padding: 0 25px;
+}
+
+.instructions div h2,
+.instructions div h1 {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.instructions div p {
+  margin-top: 10px;
+  font-weight: 100;
+  line-height: 1.4;
+}
+
+.instructions div a {
+  font-weight: 300;
+}
+
+.instructions .important {
+  font-weight: 500;
+}
+
+.clipboard {
+  position: fixed;
+  bottom: 0px;
+  opacity: 0;
+  padding: 25px 50px;
+  background-color: white;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  box-shadow: 0px 12px 6px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+.clipboard span {
+  margin: 0 4px;
+  font-weight: 500;
+  color: black;
+}
+
+.clipboard p {
+  font-weight: 300;
+  color: black;
+}
+
+@media (max-width: 900px) {
+  .container {
+    overflow: scroll;
+    height: auto;
+  }
+  .inner-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .details {
+    width: 90%;
+  }
+
+  .account,
+  .code {
+    margin: 0;
+    padding: 25px 0;
+    margin: 15px 0;
+  }
+
+  .account-header {
+    text-align: center;
+  }
+
+  .account p,
+  .code p {
+    padding: 0 25px;
+  }
+
+  .instructions {
+    overflow: auto;
+    width: 90%;
+    margin: 15px 0;
+  }
+
+  .instructions-header {
+    text-align: center;
+  }
+}

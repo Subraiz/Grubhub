@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #e94560;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #1e1e1e inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+p,
+h1,
+h2,
+button,
+a,
+option,
+select,
+input {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  color: white;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+}

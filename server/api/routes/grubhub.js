@@ -44,7 +44,8 @@ const AccountRouter = require("express").Router();
 
 async function getCode(profile, res) {
   const browser = await puppeteer.launch({
-    headless: true
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
 
   const page = await browser.newPage();

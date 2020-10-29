@@ -41,7 +41,7 @@ export default function Index() {
 
     setTimeout(() => {
       const updateLoaderProgress = setInterval(() => {
-        if (progress === 80) {
+        if (progress >= 80) {
           clearInterval(updateLoaderProgress);
         } else {
           updateProgress((progress += 1));
@@ -82,7 +82,7 @@ export default function Index() {
 
         TweenMax.to(loader, 1, { ease: "linear", width: "100%" });
         const updateLoaderProgress = setInterval(() => {
-          if (progress === 100) {
+          if (progress >= 100) {
             clearInterval(updateLoaderProgress);
           } else {
             updateProgress((progress += 1));

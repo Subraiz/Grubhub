@@ -80,6 +80,7 @@ export default function Index() {
           .map(key => key + "=" + user[key])
           .join("&");
 
+        tl.kill();
         TweenMax.to(loader, 1, { ease: "linear", width: "100%" });
         const updateLoaderProgress = setInterval(() => {
           if (progress >= 100) {

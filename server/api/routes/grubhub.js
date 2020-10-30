@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const config = require("../../../config.json");
 const { performance } = require("perf_hooks");
 const cluster = require("cluster");
 const parsePhoneNumber = require("libphonenumber-js");
@@ -43,10 +44,19 @@ const AccountRouter = require("express").Router();
 // }
 
 async function getCode(profile, res) {
-  const browser = await puppeteer.launch({
-    headless: true
-    // args: ["--no-sandbox", "--disable-setuid-sandbox"]
-  });
+  let browser;
+  if (config.server.includes("localhost")) {
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    });
+  } else {
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: "/usr/bin/chromium-browser"
+    });
+  }
 
   const page = await browser.newPage();
 

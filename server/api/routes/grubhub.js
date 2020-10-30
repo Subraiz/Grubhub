@@ -44,7 +44,7 @@ const AccountRouter = require("express").Router();
 
 async function getCode(profile, res) {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: true
     // args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
 
@@ -224,7 +224,7 @@ AccountRouter.get("", async (req, res) => {
 });
 
 async function main() {
-  console.log('Fetching Account');
+  console.log("Fetching Account");
   const profile = {
     firstName: "Subraiz",
     lastName: "Ahmed",
@@ -237,6 +237,6 @@ async function main() {
   await getCode(profile);
 }
 
-// main();
+main();
 
 module.exports = AccountRouter;

@@ -82,6 +82,7 @@ export default function Index() {
 
         tl.kill();
         TweenMax.to(loader, 1, { ease: "linear", width: "100%" });
+        updateProgress(60);
         const updateLoaderProgress = setInterval(() => {
           if (progress >= 100) {
             clearInterval(updateLoaderProgress);
@@ -92,7 +93,7 @@ export default function Index() {
 
         setTimeout(() => {
           Router.push(`/Account?${queryString}`);
-        }, 1025);
+        }, 1050);
       })
       .catch(err => {
         console.log(err);

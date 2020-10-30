@@ -41,7 +41,7 @@ export default function Index() {
 
     setTimeout(() => {
       const updateLoaderProgress = setInterval(() => {
-        if (progress >= 80) {
+        if (progress >= 60) {
           clearInterval(updateLoaderProgress);
         } else {
           updateProgress((progress += 1));
@@ -62,8 +62,8 @@ export default function Index() {
         { top: "-30px", opacity: 1, ease: "expo.inOut" },
         "-=1"
       )
-      .to(loader, 8, {
-        width: "80%",
+      .to(loader, 6, {
+        width: "60%",
         ease: "linear"
       });
 

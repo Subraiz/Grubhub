@@ -147,9 +147,9 @@ export default function Account(props) {
             <div>
               <p>Promo Code</p>
               <p
-                className="code"
+                className="promoCode"
                 onClick={() => {
-                  copyToClipboard("code");
+                  copyToClipboard("promoCode");
                 }}
               >
                 {`${promoCode}`}

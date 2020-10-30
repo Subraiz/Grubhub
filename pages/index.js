@@ -41,7 +41,7 @@ export default function Index() {
 
     setTimeout(() => {
       const updateLoaderProgress = setInterval(() => {
-        if (progress >= 80) {
+        if (progress >= 90) {
           clearInterval(updateLoaderProgress);
         } else {
           updateProgress((progress += 1));
@@ -62,8 +62,8 @@ export default function Index() {
         { top: "-30px", opacity: 1, ease: "expo.inOut" },
         "-=1"
       )
-      .to(loader, 8, {
-        width: "80%",
+      .to(loader, 9, {
+        width: "90%",
         ease: "linear"
       });
 
@@ -82,14 +82,14 @@ export default function Index() {
 
         tl.kill();
         TweenMax.to(loader, 1, { ease: "linear", width: "100%" });
-        updateProgress(80);
+        updateProgress(90);
         const updateLoaderProgress = setInterval(() => {
           if (progress >= 100) {
             clearInterval(updateLoaderProgress);
           } else {
             updateProgress((progress += 1));
           }
-        }, 50);
+        }, 100);
 
         setTimeout(() => {
           Router.push(`/Account?${queryString}`);

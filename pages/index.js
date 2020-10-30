@@ -166,12 +166,20 @@ export default function Index() {
         <p>{`This tool allows you to save $10 on any GrubHub order. Simply enter your basic details and the application will generate you a promotional code as well as create an account for you. Made by and for hungry college students.`}</p>
         <p>
           <span>Requirements: </span>
-          {`You must have a credit/debit card provider which lets you generate a virtual credit/debit card number. Capital One credit cards have a Google Chrome plugin which lets you create a virtual number for each transaction.`}
+          {`You must have a credit/debit card provider which lets you generate a virtual credit/debit card number. Capital One credit cards have a`}{" "}
+          <span>
+            <a
+              href="https://chrome.google.com/webstore/detail/eno%C2%AE-from-capital-one%C2%AE/clmkdohmabikagpnhjmgacbclihgmdje?utm_source=chrome-ntp-icon"
+              target="_blank"
+            >{` Google Chrome Plugin`}</a>
+          </span>
+          {` which lets you create a virtual number for each transaction. If you do not have a credit card which lets you do that you can create an account at `}{" "}
+          <span>
+            <a href="https://privacy.com" target="_blank">{` Privacy`}</a>
+          </span>
+          {` which lets you generate virtual cards with any bank account.`}
         </p>
-        <a
-          href="https://chrome.google.com/webstore/detail/eno%C2%AE-from-capital-one%C2%AE/clmkdohmabikagpnhjmgacbclihgmdje?utm_source=chrome-ntp-icon"
-          target="_blank"
-        >{`Capital One Plugin`}</a>
+
         <p>
           <span>Disclaimer: </span>
           {`This is also only for educational purposes. As always, enjoy your meal and have a great day!`}

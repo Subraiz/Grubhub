@@ -93,7 +93,7 @@ export default function Index() {
 
         setTimeout(() => {
           Router.push(`/Account?${queryString}`);
-        }, 1050);
+        }, 1100);
       })
       .catch(err => {
         console.log(err);

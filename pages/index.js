@@ -166,18 +166,50 @@ export default function Index() {
         <p>{`This tool allows you to save $10 on any GrubHub order. Simply enter your basic details and the application will generate you a promotional code as well as create an account for you. Made by and for hungry college students.`}</p>
         <p>
           <span>Requirements: </span>
-          {`You must have a credit/debit card provider which lets you generate a virtual credit/debit card number. Capital One credit cards have a`}{" "}
-          <span>
-            <a
-              href="https://chrome.google.com/webstore/detail/eno%C2%AE-from-capital-one%C2%AE/clmkdohmabikagpnhjmgacbclihgmdje?utm_source=chrome-ntp-icon"
-              target="_blank"
-            >{` Google Chrome Plugin`}</a>
-          </span>
-          {` which lets you create a virtual number for each transaction. If you do not have a credit card which lets you do that you can create an account at `}{" "}
+          {`You must have a credit/debit card provider which lets you generate a virtual credit/debit card number. If you do not have a credit card which lets you do that you can create an account at `}
           <span>
             <a href="https://privacy.com" target="_blank">{` Privacy`}</a>
           </span>
           {` which lets you generate virtual cards with any bank account.`}
+        </p>
+
+        <p>
+          <span>Supported Card Providers</span> <br />
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://chrome.google.com/webstore/detail/eno%C2%AE-from-capital-one%C2%AE/clmkdohmabikagpnhjmgacbclihgmdje?utm_source=chrome-ntp-icon"
+            target="_blank"
+          >{`Capital One`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://www.cardbenefits.citi.com/Products/Virtual-Account-Numbers"
+            target="_blank"
+          >{`Citibank`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://masterpass.com/en-my.html"
+            target="_blank"
+          >{`Masterpass by Mastercard (Mastercard, Visa, American Express, Discover)`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://www.americanexpress.com/us/payment-solutions/amex-go-virtual-cards/"
+            target="_blank"
+          >{`American Express (Amex)`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://www.chase.com/digital/digital-payments/chase-pay"
+            target="_blank"
+          >{`Chase`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://www.wellsfargo.com/mobile/payments/"
+            target="_blank"
+          >{`Wells Fargo`}</a>
+          <a
+            className={`${styles[`supported-card`]}`}
+            href="https://usa.visa.com/pay-with-visa/checkout.html"
+            target="_blank"
+          >{`Visa Checkout (Visa, Mastercard, American Express, Discover)`}</a>
         </p>
 
         <p>

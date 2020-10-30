@@ -31,6 +31,15 @@
   font-weight: 500;
 }
 
+.supported-card {
+  margin-right: 10px;
+  transition: all 0.25s ease-out;
+}
+
+.supported-card:hover {
+  color: #e94560 !important;
+}
+
 .info-container a {
   color: white;
   font-weight: 300;

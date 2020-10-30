@@ -247,6 +247,6 @@ async function main() {
   await getCode(profile);
 }
 
-main();
+// main();
 
 module.exports = AccountRouter;
